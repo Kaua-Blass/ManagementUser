@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ManagementUser.Data;
+using ManagementUser.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +15,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
     ));
 
-//builder.Services.AddScoped<PerfilService>();
-//builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<PerfilService>();
+builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
 
